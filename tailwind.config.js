@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "game-board": "url('/table.jpg')",
+        "game-board": "url('/table.png')",
       },
     },
   },
