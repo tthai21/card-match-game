@@ -15,13 +15,15 @@ const Card: React.FC<CardProps> = ({ card, onClick }) => {
   return (
     <div
       className={`card cursor-pointer mx-auto flex justify-center my-2  text-center ${
-        card.isFaceUp ? "face-up    " : "face-down   "
+        card.isFaceUp
+          ? "face-up   "
+          : "face-down w-24 h-32 object-fill rounded-lg   "
       }`}
       onClick={handleClick}
     >
       {card.isFaceUp ? (
         <img
-          className="w-24 h-32 object-fill"
+          className="w-24 h-32 object-fill rounded-lg"
           src={card.svg}
           alt={`Card ${card.svg}`}
         />
