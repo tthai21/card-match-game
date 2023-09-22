@@ -14,15 +14,23 @@ const Card: React.FC<CardProps> = ({ card, onClick }) => {
 
   return (
     <div
-      className={`card ${
-        card.isFaceUp ? "face-up w-20 my-3 " : "face-down w-20 my-3"
+      className={`card cursor-pointer mx-auto flex justify-center my-2  text-center ${
+        card.isFaceUp ? "face-up    " : "face-down   "
       }`}
       onClick={handleClick}
     >
       {card.isFaceUp ? (
-        <img src={card.svg} alt={`Card ${card.id}`} />
+        <img
+          className="w-24 h-32 object-fill"
+          src={card.svg}
+          alt={`Card ${card.svg}`}
+        />
       ) : (
-        <img src="back.png" alt="back.png" />
+        <img
+          className="w-24 h-32 object-fill px-1 rounded-lg"
+          src="back.png"
+          alt="back.png"
+        />
       )}
     </div>
   );

@@ -76,7 +76,7 @@ const Generate36RandomCards: () => CardData[] = () => {
   ];
 
   const randomCardArray: CardData[] = shuffleArray(cards);
-  const first18Cards: CardData[] = randomCardArray.slice(0, 6);
+  const first18Cards: CardData[] = randomCardArray.slice(0, 12);
   // Create a duplicate cards array with unique id
   const existingIDs = new Set(first18Cards.map((item) => item.id));
   const duplicatedCards = first18Cards.map((item) => ({

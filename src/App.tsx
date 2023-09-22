@@ -1,16 +1,13 @@
 import Board from "./Board/Board";
 
-
 function App() {
   return (
- 
-      <div>
-        <h1 className="text-3xl font-bold text-blue-500 text bg-center mt-10 text-center">
-          Matching Card Game
-        </h1>
-        <Board></Board>
-      </div>
-  
+    <div className="bg-cover bg-no-repeat bg-center h-screen bg-game-board ">
+      <h1 className="text-6xl font-bold text-white text bg-center  text-center pt-10">
+        Matching Card Game
+      </h1>
+      <Board></Board>
+    </div>
   );
 }
 

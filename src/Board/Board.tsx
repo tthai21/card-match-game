@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 import Generate36RandomCards from "../Helper/Generate36RandomCards";
 import Button from "../Helper/Button";
 import Congratulation from "../Helper/Congratulation";
+import DisplayTime from "../Helper/DisplayTime";
 
 const Board: React.FC = () => {
   const [cards, setCards] = useState<CardData[]>([]);
@@ -23,7 +24,6 @@ const Board: React.FC = () => {
   }, []);
 
   const onCardClick = (clickedCard: CardData) => {
-    console.log("Card clicked:", clickedCard);
     if (
       openCards.length < 2 &&
       !clickedCard.isMatched &&
@@ -116,20 +116,21 @@ const Board: React.FC = () => {
 
   return (
     <>
-      <div className="w-[40%] mx-auto mt-5">
-        <div className="text-center">Timer: {timer}sec</div>
-        <div className="grid grid-cols-6 gap-x-3">
-          {cards.map((card, index) => (
-            <Card key={index} card={card} onClick={() => onCardClick(card)} />
-          ))}
+      {gameOver ? (
+        <div className="congratulations text-center mt-10 text-2xl text-white">
+          <Congratulation timer={timer}></Congratulation>
+          <Button onClick={resetGame}></Button>
         </div>
-        {gameOver && (
-          <div className="congratulations text-center">
-            <Congratulation timer={timer}></Congratulation>
-            <Button onClick={resetGame}></Button>
+      ) : (
+        <div className="w-[40%] mx-auto mt-5 text-white text-3xl font-bold  ">
+          <DisplayTime text="Timer" timer={timer}></DisplayTime>
+          <div className="grid grid-cols-6 gap-x-3 mx-auto ">
+            {cards.map((card, index) => (
+              <Card key={index} card={card} onClick={() => onCardClick(card)} />
+            ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 };
